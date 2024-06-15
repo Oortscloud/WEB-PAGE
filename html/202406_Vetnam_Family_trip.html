@@ -32,13 +32,31 @@
             color: #e74c3c;
             font-weight: bold;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+        .toggle-content {
+            display: none;
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        .toggle-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
     </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -68,7 +86,10 @@
                 <div>킹콩마트</div>
                 <div>점심식사 (개별부담)</div>
                 <div>숙소 (대략 총 8시간 ~ 9시간 진행)</div>
-                <img src="images/morning_tour_guide.JPG" alt="모닝투어 이미지">
+                <button class="toggle-button" onclick="toggleVisibility('morningTourImage')">모닝투어 이미지 보기</button>
+                <div id="morningTourImage" class="toggle-content">
+                    <img src="images/morning_tour_guide.JPG" alt="모닝투어 이미지">
+                </div>
             </div>
             <div class="time"><span class="highlight">14:00 ~</span> 자유시간</div>
             <div class="activity">
@@ -89,7 +110,10 @@
             </div>
             <div class="time"><span class="highlight">14:00 - 17:00</span> 빈펄 사파리</div>
             <div class="activity">
-                <img src="images/safari_tour_guide.jpg" alt="빈펄 사파리 이미지">
+                <button class="toggle-button" onclick="toggleVisibility('safariImage')">빈펄 사파리 이미지 보기</button>
+                <div id="safariImage" class="toggle-content">
+                    <img src="images/safari_tour_guide.jpg" alt="빈펄 사파리 이미지">
+                </div>
             </div>
             <div class="time"><span class="highlight">17:00 ~</span> 저녁식사 (개별부담)</div>
             <div class="time"><span class="highlight">~20:00</span> 그랜드월드 자유시간</div>
