@@ -41,19 +41,31 @@
             background-color: #3498db;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
             margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-button:hover {
+            background-color: #2980b9;
         }
     </style>
     <script>
         function toggleVisibility(id) {
             var element = document.getElementById(id);
-            if (element.style.display === "none") {
+            if (element.style.display === "none" || element.style.display === "") {
                 element.style.display = "block";
+                element.style.opacity = 0;
+                setTimeout(function() {
+                    element.style.opacity = 1;
+                }, 10);
             } else {
-                element.style.display = "none";
+                element.style.opacity = 0;
+                setTimeout(function() {
+                    element.style.display = "none";
+                }, 300);
             }
         }
     </script>
@@ -152,4 +164,3 @@
     </div>
 </body>
 </html>
-
