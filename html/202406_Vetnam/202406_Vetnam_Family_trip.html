@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div id="referenceTab" class="tab-content">
+         <div id="referenceTab" class="tab-content">
             <h2>참고사항</h2>
             <div class="reference-item">
                 <h3>숙소정보</h3>
@@ -139,7 +139,7 @@
                 <h3>푸꾸옥 지도</h3>
                 <button class="toggle-button" onclick="toggleVisibility('phuquocMap')">지도 보기</button>
                 <div id="phuquocMap" class="toggle-content">
-                    <img src="images/phuquoc_map.JPG" alt="푸꾸옥 지도">
+                    <img src="images/phuquoc_map.JPG" alt="푸꾸옥 지도" onclick="openModal(this)">
                 </div>
             </div>
             <div class="reference-item">
@@ -193,10 +193,15 @@
                 </div>
                 <button class="toggle-button" onclick="toggleVisibility('insuranceInfo')">보험 가입사항 보기</button>
                 <div id="insuranceInfo" class="toggle-content">
-                    <img src="insurance/여행자보험_가입사항.jpg" alt="보험 가입사항">
+                    <img src="insurance/여행자보험_가입사항.jpg" alt="보험 가입사항" onclick="openModal(this)">
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
     </div>
 </body>
 </html>
