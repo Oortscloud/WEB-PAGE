@@ -12,7 +12,7 @@
         <h1>푸꾸옥, 베트남 여행 일정</h1>
         <div class="tabs">
             <div class="tab active" data-tab="scheduleTab" onclick="toggleTab('scheduleTab')">일정</div>
-            <div class="tab active" data-tab="referenceTab" onclick="toggleTab('referenceTab')">참고사항</div>
+            <div class="tab" data-tab="referenceTab" onclick="toggleTab('referenceTab')">참고사항</div>
         </div>
         
         <div id="scheduleTab" class="tab-content active">
@@ -107,6 +107,22 @@
                     <div>재아 공항버스 8:20</div>
                     <div>상희 버스 또는 차량</div>
                 </div>
+            </div>
+        </div>
+
+        <div id="referenceTab" class="tab-content">
+            <h2>참고사항</h2>
+            <button class="toggle-button" onclick="toggleVisibility('phuquocMap')">푸꾸옥 지도</button>
+            <div id="phuquocMap" class="toggle-content">
+                <img src="images/phuquoc_map.jpg" alt="푸꾸옥 지도">
+            </div>
+            <button class="toggle-button" onclick="toggleVisibility('rentCar')">렌트카</button>
+            <div id="rentCar" class="toggle-content">
+                <a href="https://www.myrealtrip.com/offers/133835" target="_blank">렌트카 정보</a>
+            </div>
+            <button class="toggle-button" onclick="toggleVisibility('recommendedAttractions')">추천 관광지</button>
+            <div id="recommendedAttractions" class="toggle-content">
+                <a href="https://blog.naver.com/clwmwnjfk/223311353561" target="_blank">추천 관광지 정보</a>
             </div>
         </div>
     </div>
