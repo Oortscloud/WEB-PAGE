@@ -20,7 +20,7 @@ h1, h2 {
 
 .tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;  /* 왼쪽 정렬 */
     margin-bottom: 20px;
 }
 
@@ -87,4 +87,3 @@ h1, h2 {
 .toggle-button:hover {
     background-color: #2980b9;
 }
-
