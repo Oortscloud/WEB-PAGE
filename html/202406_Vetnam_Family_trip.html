@@ -17,6 +17,33 @@
         h1, h2 {
             color: #2c3e50;
         }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            background-color: #f1f1f1;
+        }
+        .tab.active {
+            background-color: white;
+            border-top: 2px solid #3498db;
+            border-right: 2px solid #3498db;
+            border-left: 2px solid #3498db;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-top: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
         .day {
             border-bottom: 1px solid #bdc3c7;
             margin-bottom: 20px;
@@ -24,9 +51,6 @@
         }
         .time, .activity {
             margin-bottom: 10px;
-        }
-        .activity-title {
-            font-weight: bold;
         }
         .highlight {
             color: #e74c3c;
@@ -53,6 +77,22 @@
         }
     </style>
     <script>
+        function toggleTab(tabId) {
+            var tabs = document.querySelectorAll('.tab');
+            var tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            
+            tabContents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector('[data-tab="' + tabId + '"]').classList.add('active');
+        }
+        
         function toggleVisibility(id) {
             var element = document.getElementById(id);
             if (element.style.display === "none" || element.style.display === "") {
@@ -72,95 +112,101 @@
 </head>
 <body>
     <div class="container">
-        <h1>푸꾸옥, 베트남 여행 일정 (2024년 6월 18일 - 6월 23일)</h1>
+        <h1>푸꾸옥, 베트남 여행 일정</h1>
+        <div class="tabs">
+            <div class="tab active" data-tab="scheduleTab" onclick="toggleTab('scheduleTab')">일정</div>
+        </div>
         
-        <div class="day">
-            <h2>0일차 - 2024/06/18</h2>
-            <div class="time"><span class="highlight">22:00</span> 인천공항1터미널 8 Gate 집결</div>
-            <div class="activity">
-                <div>어머님, 아버님: 공항버스</div>
-                <div>재아네: 공항버스</div>
-                <div>상희: 버스 또는 차량 (공영주차장 이용 예정)</div>
-                <div>개별 이동 후 집결</div>
-            </div>
-        </div>
-
-        <div class="day">
-            <h2>1일차 - 2024/06/19</h2>
-            <div class="time"><span class="highlight">01:45</span> 이륙시간 Vietjet 항공편명: VJ975 예약코드 : RJVQCR</div>
-            <div class="time"><span class="highlight">05:10</span> 착륙시간 Vietjet 항공편명: VJ975 예약코드 : RJVQCR</div>
-            <div class="time"><span class="highlight">06:00 - 14:00</span> 모닝투어</div>
-            <div class="activity">
-                <div>아침식사 (쌀국수)</div>
-                <div>딘꺼우 사원 & 안바카페</div>
-                <div>과일가게</div>
-                <div>마사지</div>
-                <div>킹콩마트</div>
-                <div>점심식사 (개별부담)</div>
-                <div>숙소 (대략 총 8시간 ~ 9시간 진행)</div>
-                <button class="toggle-button" onclick="toggleVisibility('morningTourImage')">모닝투어 이미지 보기</button>
-                <div id="morningTourImage" class="toggle-content">
-                    <img src="images/morning_tour_guide.JPG" alt="모닝투어 이미지">
+        <div id="scheduleTab" class="tab-content active">
+            <div class="day">
+                <h2>0일차 - 2024/06/18</h2>
+                <div class="time"><span class="highlight">22:00</span> 인천공항1터미널 8 Gate 집결</div>
+                <div class="activity">
+                    <div>어머님, 아버님: 공항버스</div>
+                    <div>재아네: 공항버스</div>
+                    <div>상희: 버스 또는 차량 (공영주차장 이용 예정)</div>
+                    <div>개별 이동 후 집결</div>
                 </div>
             </div>
-            <div class="time"><span class="highlight">14:00 ~</span> 자유시간</div>
-            <div class="activity">
-                <div>숙소 내 수영장 이용 또는 바닷가 및 휴식</div>
-            </div>
-        </div>
 
-        <div class="day">
-            <h2>2일차 - 2024/06/20</h2>
-            <div class="time"><span class="highlight">~12:00</span> 자유시간</div>
-            <div class="activity">
-                <div>숙소 내 수영장 이용 또는 바닷가 및 휴식</div>
-            </div>
-            <div class="time"><span class="highlight">~12:30</span> 빈펄 투어 준비</div>
-            <div class="activity">
-                <div>픽업 (14시 투어 시작으로 미리 올듯)</div>
-                <div>대략 총 8시간 소요</div>
-            </div>
-            <div class="time"><span class="highlight">14:00 - 17:00</span> 빈펄 사파리</div>
-            <div class="activity">
-                <button class="toggle-button" onclick="toggleVisibility('safariImage')">빈펄 사파리 이미지 보기</button>
-                <div id="safariImage" class="toggle-content">
-                    <img src="images/safari_tour_guide.jpg" alt="빈펄 사파리 이미지">
+            <div class="day">
+                <h2>1일차 - 2024/06/19</h2>
+                <div class="time"><span class="highlight">01:45</span> 이륙시간 Vietjet 항공편명: VJ975 예약코드 : RJVQCR</div>
+                <div class="time"><span class="highlight">05:10</span> 착륙시간 Vietjet 항공편명: VJ975 예약코드 : RJVQCR</div>
+                <div class="time"><span class="highlight">06:00 - 14:00</span> 모닝투어</div>
+                <div class="activity">
+                    <div>아침식사 (쌀국수)</div>
+                    <div>딘꺼우 사원 & 안바카페</div>
+                    <div>과일가게</div>
+                    <div>마사지</div>
+                    <div>킹콩마트</div>
+                    <div>점심식사 (개별부담)</div>
+                    <div>숙소 (대략 총 8시간 ~ 9시간 진행)</div>
+                    <button class="toggle-button" onclick="toggleVisibility('morningTourImage')">모닝투어 이미지 보기</button>
+                    <div id="morningTourImage" class="toggle-content">
+                        <img src="images/morning_tour_guide.JPG" alt="모닝투어 이미지">
+                    </div>
+                </div>
+                <div class="time"><span class="highlight">14:00 ~</span> 자유시간</div>
+                <div class="activity">
+                    <div>숙소 내 수영장 이용 또는 바닷가 및 휴식</div>
                 </div>
             </div>
-            <div class="time"><span class="highlight">17:00 ~</span> 저녁식사 (개별부담)</div>
-            <div class="time"><span class="highlight">~20:00</span> 그랜드월드 자유시간</div>
-            <div class="time"><span class="highlight">20:10</span> 딘화쇼</div>
-            <div class="time"><span class="highlight">21:20</span> 분수쇼</div>
-            <div class="time"><span class="highlight">22:30</span> 숙소 복귀</div>
-        </div>
 
-        <div class="day">
-            <h2>3일차 - 2024/06/21</h2>
-            <div class="time"><span class="highlight">미정</span></div>
-            <div class="activity">
-                <div>혼또섬 투어, 남부지방 사오비치 → 호국사 → 복귀 후 휴식 중 선택 예정</div>
+            <div class="day">
+                <h2>2일차 - 2024/06/20</h2>
+                <div class="time"><span class="highlight">~12:00</span> 자유시간</div>
+                <div class="activity">
+                    <div>숙소 내 수영장 이용 또는 바닷가 및 휴식</div>
+                </div>
+                <div class="time"><span class="highlight">~12:30</span> 빈펄 투어 준비</div>
+                <div class="activity">
+                    <div>픽업 (14시 투어 시작으로 미리 올듯)</div>
+                    <div>대략 총 8시간 소요</div>
+                </div>
+                <div class="time"><span class="highlight">14:00 - 17:00</span> 빈펄 사파리</div>
+                <div class="activity">
+                    <button class="toggle-button" onclick="toggleVisibility('safariImage')">빈펄 사파리 이미지 보기</button>
+                    <div id="safariImage" class="toggle-content">
+                        <img src="images/safari_tour_guide.jpg" alt="빈펄 사파리 이미지">
+                    </div>
+                </div>
+                <div class="time"><span class="highlight">17:00 ~</span> 저녁식사 (개별부담)</div>
+                <div class="time"><span class="highlight">~20:00</span> 그랜드월드 자유시간</div>
+                <div class="time"><span class="highlight">20:10</span> 딘화쇼</div>
+                <div class="time"><span class="highlight">21:20</span> 분수쇼</div>
+                <div class="time"><span class="highlight">22:30</span> 숙소 복귀</div>
             </div>
-        </div>
 
-        <div class="day">
-            <h2>4일차 - 2024/06/22</h2>
-            <div class="time"><span class="highlight">~17:00</span> 미정</div>
-            <div class="activity">
-                <div>체력상태 고려한 일정 진행 예정, 바닷가 놀이 또는 전일 선택지 중 미선택 투어 진행 가능</div>
+            <div class="day">
+                <h2>3일차 - 2024/06/21</h2>
+                <div class="time"><span class="highlight">미정</span></div>
+                <div class="activity">
+                    <div>혼또섬 투어, 남부지방 사오비치 → 호국사 → 복귀 후 휴식 중 선택 예정</div>
+                </div>
             </div>
-            <div class="time"><span class="highlight">20:35</span> 이륙시간 Vietjet 항공편명: VJ976 예약코드 : 3G7S9G</div>
-        </div>
 
-        <div class="day">
-            <h2>5일차 - 2024/06/23</h2>
-            <div class="time"><span class="highlight">04:00</span> 착륙시간 Vietjet 항공편명: VJ976 예약코드 : 3G7S9G</div>
-            <div class="time"><span class="highlight">08:00</span> 해산</div>
-            <div class="activity">
-                <div>광주 공항버스 8:10</div>
-                <div>재아 공항버스 8:20</div>
-                <div>상희 버스 또는 차량</div>
+            <div class="day">
+                <h2>4일차 - 2024/06/22</h2>
+                <div class="time"><span class="highlight">~17:00</span> 미정</div>
+                <div class="activity">
+                    <div>체력상태 고려한 일정 진행 예정, 바닷가 놀이 또는 전일 선택지 중 미선택 투어 진행 가능</div>
+                </div>
+                <div class="time"><span class="highlight">20:35</span> 이륙시간 Vietjet 항공편명: VJ976 예약코드 : 3G7S9G</div>
+            </div>
+
+            <div class="day">
+                <h2>5일차 - 2024/06/23</h2>
+                <div class="time"><span class="highlight">04:00</span> 착륙시간 Vietjet 항공편명: VJ976 예약코드 : 3G7S9G</div>
+                <div class="time"><span class="highlight">08:00</span> 해산</div>
+                <div class="activity">
+                    <div>광주 공항버스 8:10</div>
+                    <div>재아 공항버스 8:20</div>
+                    <div>상희 버스 또는 차량</div>
+                </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
