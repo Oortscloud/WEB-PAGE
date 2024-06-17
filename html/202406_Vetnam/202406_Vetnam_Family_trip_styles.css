@@ -72,7 +72,7 @@ h1, h2 {
     margin-bottom: 10px;
 }
 
-img {
+.toggle-content img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
@@ -93,4 +93,3 @@ img {
 .toggle-button:hover {
     background-color: #2980b9;
 }
-
