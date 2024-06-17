@@ -16,16 +16,20 @@ function toggleTab(tabId) {
 
 function toggleVisibility(id) {
     var element = document.getElementById(id);
+    var button = document.querySelector('button[onclick="toggleVisibility(\'' + id + '\')"]');
     if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "block";
         element.style.opacity = 0;
         setTimeout(function() {
             element.style.opacity = 1;
         }, 10);
+        button.classList.add('active');
     } else {
         element.style.opacity = 0;
         setTimeout(function() {
             element.style.display = "none";
         }, 300);
+        button.classList.remove('active');
     }
 }
+
