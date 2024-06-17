@@ -22,18 +22,19 @@ h1, h2 {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 20px;
-    border-bottom: 2px solid #ececec;
+    border-bottom: 1px solid #ececec;
 }
 
 .tab {
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
     background-color: #ffffff;
     border: 1px solid #ececec;
     border-bottom: none;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
     margin-right: 5px;
     transition: background-color 0.3s ease, border 0.3s ease;
+    font-size: 14px;
 }
 
 .tab:hover {
@@ -50,7 +51,7 @@ h1, h2 {
 .tab-content {
     display: none;
     padding: 20px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 5px 5px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -91,7 +92,7 @@ h1, h2 {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 14px;
     margin-top: 10px;
@@ -112,16 +113,16 @@ h1, h2 {
     box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.5);
 }
 
-button.toggle-button::before {
-    content: '▶ ';
+.toggle-button::before {
+    content: '▶';
     font-weight: bold;
-    color: #ecf0f1;
+    color: white;
     margin-right: 5px;
 }
 
-button.toggle-button.active::before {
-    content: '▼ ';
+.toggle-button.active::before {
+    content: '▼';
     font-weight: bold;
-    color: #ecf0f1;
+    color: white;
     margin-right: 5px;
 }
