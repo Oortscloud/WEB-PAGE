@@ -148,3 +148,33 @@ h1, h2 {
 .reference-item a:hover {
     text-decoration: underline;
 }
+
+.subscriber {
+    margin-top: 10px;
+}
+
+.subscriber-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.subscriber-item span {
+    flex: 1;
+    font-size: 14px;
+}
+
+.subscriber-item .button {
+    background-color: #34495e;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.subscriber-item .button:hover {
+    background-color: #2c3e50;
+}
+
