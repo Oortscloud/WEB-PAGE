@@ -42,9 +42,9 @@ h1, h2 {
 }
 
 .tab.active {
-    background-color: #3498db;
+    background-color: #2ecc71; /* 민트색으로 변경 */
     color: white;
-    border: 1px solid #3498db;
+    border: 1px solid #2ecc71;
     border-bottom: none;
 }
 
@@ -89,7 +89,7 @@ h1, h2 {
 }
 
 .toggle-button {
-    background-color: #3498db;
+    background-color: #2ecc71; /* 민트색으로 변경 */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -104,13 +104,13 @@ h1, h2 {
 }
 
 .toggle-button:hover {
-    background-color: #2980b9;
+    background-color: #27ae60; /* 어두운 민트색 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-button:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.5);
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.5);
 }
 
 .toggle-button::before {
