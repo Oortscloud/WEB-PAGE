@@ -32,3 +32,4 @@ function toggleVisibility(id) {
         button.classList.remove('active');
     }
 }
+
