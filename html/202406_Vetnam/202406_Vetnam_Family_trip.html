@@ -23,7 +23,7 @@
                     <div>인천공항 USIM칩 수령</div>
                     <button class="toggle-button" onclick="toggleVisibility('usim_pickup_guide')">USIM 수령 자세히 보기</button>
                     <div id="usim_pickup_guide" class="toggle-content">
-                        <img src="images/usim_pickup_guide.jpg" alt="USIM 수령 이미지">
+                        <img src="images/usim_pickup_guide.jpg" alt="USIM 수령 이미지" onclick="openModal(this)">
                     </div>
                     <div>어머님, 아버님: 공항버스</div>
                     <div>재아네: 공항버스</div>
@@ -47,7 +47,7 @@
                     <div>숙소 (대략 총 8시간 ~ 9시간 진행)</div>
                     <button class="toggle-button" onclick="toggleVisibility('morningTourImage')">모닝투어 자세히 보기</button>
                     <div id="morningTourImage" class="toggle-content">
-                        <img src="images/morning_tour_guide.JPG" alt="모닝투어 이미지">
+                        <img src="images/morning_tour_guide.JPG" alt="모닝투어 이미지" onclick="openModal(this)">
                     </div>
                 </div>
                 <div class="time"><span class="highlight">14:00 ~</span> 자유시간</div>
@@ -71,7 +71,7 @@
                 <div class="activity">
                     <button class="toggle-button" onclick="toggleVisibility('safariImage')">빈펄 사파리 자세히 보기</button>
                     <div id="safariImage" class="toggle-content">
-                        <img src="images/safari_tour_guide.jpg" alt="빈펄 사파리 이미지">
+                        <img src="images/safari_tour_guide.jpg" alt="빈펄 사파리 이미지" onclick="openModal(this)">
                     </div>
                 </div>
                 <div class="time"><span class="highlight">17:00 ~</span> 저녁식사 (개별부담)</div>
