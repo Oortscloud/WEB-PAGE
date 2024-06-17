@@ -19,17 +19,21 @@ function toggleVisibility(id) {
     var button = document.querySelector('button[onclick="toggleVisibility(\'' + id + '\')"]');
     if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "block";
-        element.style.opacity = 0;
-        setTimeout(function() {
-            element.style.opacity = 1;
-        }, 10);
         button.classList.add('active');
     } else {
-        element.style.opacity = 0;
-        setTimeout(function() {
-            element.style.display = "none";
-        }, 300);
+        element.style.display = "none";
         button.classList.remove('active');
     }
 }
 
+function openModal(img) {
+    var modal = document.getElementById('imageModal');
+    var modalImg = document.getElementById('modalImage');
+    modal.style.display = "block";
+    modalImg.src = img.src;
+}
+
+function closeModal() {
+    var modal = document.getElementById('imageModal');
+    modal.style.display = "none";
+}
